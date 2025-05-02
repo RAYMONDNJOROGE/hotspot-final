@@ -1,0 +1,226 @@
+*{
+    font-family: 'roboto', sans-serif;
+    margin: 0;
+    padding: 0; 
+}
+body{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+    max-height: 100vh;
+}
+#header{
+    background-color: rgb(9, 9, 54);
+    font-size: 1.5em;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 80px;
+    color: white;
+}
+#description{
+    font-size: 1.6em;
+    background-color: aqua;
+    font-weight: 600;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: auto;
+    margin-bottom: 20px;
+    margin-top: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+#main-con{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-evenly;
+    gap: 10px;
+}
+.sub-boxes{
+    width: 300px;
+    height: 200px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    background-color: rgb(8, 8, 106);
+}
+.header-box{
+    font-weight: 600;
+    padding-top: 15px;
+    font-size: 2.4em;
+    width: 100%;
+}
+.header2-box{
+    font-weight: 500;
+    padding-top: 5px;
+    font-size: 2.1em;
+    width: 100%;
+}
+.button-box{
+    background-color: rgb(13, 126, 13);
+    border: none;
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 10px;
+}
+.button-box:hover{
+    opacity: 0.9;
+}
+.button-box:active{
+    background-color: rgb(123, 6, 6);
+}
+.sub-boxes:hover{
+    transform: scale(1.05);
+    transition: 0.3s ease;
+}
+#paymentpopup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.95);
+    display: none;
+    height: 250px;
+    width: 500px;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    transition: opacity 0.3s ease, transform 0.4s ease;
+    border-radius: 10px;
+    z-index: 1000;
+    border: 2px rgb(4, 4, 156) solid;
+}
+#h1-paymentpopup{
+    font-size: 1.7em;
+    padding: 20px;
+}
+#pay-input{
+    width: 280px;
+    height: 35px;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 15px;
+}
+#pay-button{
+    background-color: rgb(13, 126, 13);
+    border: none;
+    width: 100px;
+    height: 40px;
+    color: white;
+    font-size: 1.2em;
+    border-radius: 10px;
+    margin-top: 30px;
+}
+#pay-button:hover{
+    opacity: 0.9;
+}
+#pay-button:active{
+    background-color: rgb(13, 13, 126);
+}
+#cancel-button{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 1.6em;
+    background-color: rgb(137, 7, 7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+#cancel-button:hover{
+    opacity: 0.9;
+}
+#cancel-button:active{
+    background-color: black;
+}
+#reconnect-div{
+    width: 500px;
+    height: 300px;
+    background-color: aqua;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    text-align: center;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+#h1-reconnect{
+    font-size: 1.8em;
+}
+#reconnect-input{
+    width: 280px;
+    height: 35px;
+    text-align: center;
+    font-size: 2em;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+#reconnect-button{
+    width: 100%;
+    height: 100%;
+    background-color: rgb(13, 126, 13);
+    border: none;
+    width: 120px;
+    height: 40px;
+    color: white;
+    font-size: 1.3em;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+#reconnect-button:hover{
+    opacity: 0.9;
+}
+#reconnect-button:active{
+    background-color: rgb(123, 6, 6);
+}
+#footer{  
+    bottom: 0;
+    background-color: rgb(9, 9, 54);
+    color: white;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: auto;
+}
+#p1-footer{
+    font-size: 1.8em;
+}
+#p2-footer{
+    font-size: 1.4em;
+}
+#overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+.no-scroll {
+    overflow: hidden;
+    height: 100vh; /* Optional: Prevent unwanted layout shifts */
+}
+
+
+

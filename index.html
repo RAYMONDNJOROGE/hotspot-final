@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
+    <title>hotspot</title>
+</head>
+<body>
+            <!--Overlay-->
+            <div id="overlay"></div>
+
+            <!--Header-->
+            <div id="header">
+                    <div>
+                        <h1><u>Raynger Hotspot</u></h1>    
+                    </div>
+            </div>
+
+            <div id="description">
+                    <p>
+                    1. Kindly tap on the 'Connect' button on your preffered subscription package.<br>2. Enter your phone number and tap on 'Pay Now' to pay.<br>3. Check your phone and enter your mobile money pin.<br>4. Wait for payment verification and automatic hotspot connection upon successful payment.
+                    </p>
+            </div>
+                <div id="main-con">
+                    <div class="sub-boxes">
+                        <h1 class="header-box">1-Hour Vybz</h1>
+                        <h2 class="header2-box">kes. 10</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 10);">Connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">3-Hour Vybz</h1>
+                        <h2 class="header2-box">kes. 15</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 15);">Connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">12-Hour Vybz</h1>
+                        <h2 class="header2-box">kes. 20</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 20);">Connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">24-Hour Vybz</h1>
+                        <h2 class="header2-box">kes. 30</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 30);">Connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">2-Day Vybz</h1>
+                        <h2 class="header2-box">kes. 50</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 50);">Connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">1-Week Vybz</h1>
+                        <h2 class="header2-box">kes. 170</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 170);">Connect</button></div>
+                    </div>
+                </div>
+
+
+
+
+                <div id="reconnect-div">
+                        <form autocomplete="off">
+                            <div>
+                                <h1 id="h1-reconnect">Already have an active Subscription?<br>Enter the transaction code from the payment you made(TE2437ZENC)</h1>
+                            </div>
+                            <div>
+                                <input id="reconnect-input" placeholder="e.g TE2437ZENC" required><br>
+                                <button id="reconnect-button">Reconnect</button>
+                            </div>
+                        </form>
+                </div>
+
+<!--Footer-->
+
+                <div id="footer">
+                    <div>
+                        <p id="p1-footer">Call us on: 0717888783</p>
+                        <p id="p2-footer">Raynger Hotspot &#124; All Rights Reserved</p>
+                    </div>
+                </div>
+
+
+
+            <!--popup1-->
+        <div id="paymentpopup">
+            <form autocomplete="off" onsubmit="return handlePaymentSubmit(event)">
+                   <div>
+                      <h1 id="h1-paymentpopup">Enter your phone number in the format 254XXXXXXXXX to pay</h1>
+                   </div>
+                    <div>
+                    <input placeholder="e.g 254123456789" id="pay-input" type="number" required><br>
+                    <button type="submit" id="pay-button">
+                                Pay Now
+                    </button>
+                    <button type="button" onclick="closePopup('paymentpopup')" id="cancel-button">
+                            X
+                    </button>
+                    </div>
+            </form> 
+        </div>
+</body>
+</html>
