@@ -1,4 +1,172 @@
-*{
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="index.css">
+        <script defer src="index.js"></script> <!-- ✅ Using defer ensures script loads properly -->
+        <title>Raynger Hotspot</title>
+    </head>
+<body>
+            <!--Overlay-->
+            <div id="overlay"></div>
+
+            <!--Header-->
+            <div id="header">
+                    <div>
+                        <h1><u>Raynger Hotspot</u></h1>    
+                    </div>
+            </div>
+
+            <div id="description">
+                        <p>
+                            Welcome to Raynger Hotspot,<br>Choose your prefered Subscription Package and tap on 'connect' to subscribe.
+                        </p>
+                    </div>
+            </div>
+                <div id="main-con">
+                    <div class="sub-boxes">
+                        <h1 class="header-box">1-Hour Vybz</h1>
+                        <h2 class="header2-box">@kes. 10</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 10);">connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">3-Hour Vybz</h1>
+                        <h2 class="header2-box">@kes. 20</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 15);">connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">8-Hour Vybz</h1>
+                        <h2 class="header2-box">@kes. 30</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 20);">connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">24-Hour Vybz</h1>
+                        <h2 class="header2-box">@kes. 50</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 30);">connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">2-Day Vybz</h1>
+                        <h2 class="header2-box">@kes. 70</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 50);">connect</button></div>
+                    </div>
+                    <div class="sub-boxes">
+                        <h1 class="header-box">7-Day Vybz</h1>
+                        <h2 class="header2-box">@kes. 200</h2>
+                        <div><button class="button-box" type="button" onclick="handlePayment(event, 170);">connect</button></div>
+                    </div>
+                </div>
+
+
+                <div id="reconnect-div">
+                        <form autocomplete="off" onsubmit="return validatePhone()">
+                            <div>
+                                <h1 id="h1-reconnect">Already have an active Subscription?<br>Enter your Phone Number to Reconnect</h1>
+                            </div>
+                            <div>
+                                <input id="recon-phone" placeholder="e.g 254123456789" required><br>
+                                <button id="reconnect-button" type="submit">reconnect</button>
+                            </div>
+                        </form>
+                </div>
+
+                <div id="voucher-div">
+                        <form autocomplete="off" onsubmit="return validatePhone()">
+                            <div>
+                                <h1 id="h1-voucher"><u>Voucher Subscription</u></h1>
+                            </div>
+                            <div>
+                                <div>
+                                    <label for="username-voucher" id="username-label">Username:</label><br>
+                                    <input id="username-voucher"  type="text" required placeholder="Username"><br>
+                                </div>
+                                <div>
+                                    <label for="password-voucher" id="password-label">Password:</label><br>
+                                    <input id="password-voucher"  type="Password" required placeholder="Password"><br>
+                                </div>
+                                <button id="voucher-button" type="submit">connect</button>
+                            </div>
+                        </form>
+                </div>
+
+<!--Footer-->
+
+                <div id="footer">
+                    <div>
+                        <p id="p1-footer">Call us on: (254)717888783</p>
+                        <p id="p2-footer">Raynger Hotspot &#124; All Rights Reserved</p>
+                    </div>
+                </div>
+
+
+
+            <!--payment popup-->
+        <div id="paymentpopup">
+            <form autocomplete="off" onsubmit="return handlePaymentSubmit(event)">
+                   <div>
+                      <h1 id="h1-paymentpopup">Enter your Phone Number in the format 254......... and click 'Pay Now'</h1>
+                   </div>
+                    <div>
+                    <input placeholder="e.g 254123456789" id="phone" type="number" required><br>
+                    <button type="submit" id="pay-button">
+                            Pay Now
+                    </button>
+                    <button type="button" onclick="closePopup('paymentpopup')" id="cancel-button">
+                            X
+                    </button>
+                    </div>
+            </form> 
+        </div>
+            <!--Phonenumber Error-->
+        <div id="errornpopup">
+            <p id="errorp">Error. Invalid Format!</p>
+            <button type="button" onclick="closePopup('errornpopup')" id="errorokbutton">Ok</button>
+        </div>
+
+            <!--Phonenumber okay-->
+        <div id="okaypopup">
+            <p id="okayp">Kindly wait as we validate your Phone Number</p> 
+            <div id="spinner"></div>
+        </div>
+
+           <!--Stk okay-->
+        <div id="stkokpopup">
+            <p id="stkokay">Phone number valid!. Check your phone and input your pin</p>
+            
+        </div>
+
+          <!--Stk error-->
+        <div id="stkerrorpopup">
+            <p id="stkoerror">Phone number invalid or network error!. Please try again</p>
+        </div>
+
+          <!--Payment okay-->
+        <div id="payokpopup">
+            <p id="payokay">Payment Complete!. Kindly wait as we automatically connect you</p>
+            <div id="check"></div>
+        </div>
+
+         <!--Payment Cancelled-->
+        <div id="payerrorpopup">
+            <p id="payerror">Payment Cancelled!</p>
+            <div id="cross"></div>
+        </div>
+
+        <!--Reconnect Success-->
+        <div id="reconokpopup">
+            <p id="reconokay">Valid Code!. Kindly wait as we automatically reconnect you</p>
+        </div>
+
+        <!--Reconnect Failiure-->
+        <div id="reconfailpopup">
+            <p id="reconfail">Invalid Code!</p>
+        </div>
+
+        <style>
+            *{
     font-family: 'roboto', sans-serif;
     margin: 0;
     padding: 0; 
@@ -4840,3 +5008,133 @@ body{
 
 
 
+
+        </style>
+
+        <script>
+            function openPopup(popupId) {
+    const popup = document.getElementById(popupId);
+    const overlay = document.getElementById('overlay');
+    const body = document.body;
+
+   
+    popup.style.display = 'block';
+    overlay.style.display = 'block';
+
+    body.classList.add('no-scroll');
+    const phoneInput = document.getElementById("phone");
+    if (phoneInput) phoneInput.value = "";
+}
+function closePopup(popupId) {
+    const popup = document.getElementById(popupId);
+    const overlay = document.getElementById('overlay');
+    const body = document.body;
+    popup.style.display = 'none';
+    overlay.style.display = 'none';
+    body.classList.remove('no-scroll');
+}
+
+
+        
+let selectedAmount = 0;
+
+function handlePayment(event, amount) {
+    event.preventDefault();
+    selectedAmount = amount;
+    openPopup('paymentpopup');
+}
+
+async function handlePaymentSubmit(event) {
+    event.preventDefault();
+    closePopup('paymentpopup');
+
+    const phone = document.getElementById("phone").value.trim();
+
+    if (!/^254\d{9}$/.test(phone)) {
+        openPopup('errornpopup');
+        return;
+    }
+
+    openPopup('okaypopup');
+
+    try {
+        const res = await fetch("pay.php", {
+            method: "POST",
+            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+            body: `phone=${encodeURIComponent(phone)}&amount=${encodeURIComponent(selectedAmount)}&submit=1`
+        });
+
+        const data = await res.json();
+        const checkoutID = data.CheckoutRequestID;
+
+        setTimeout(() => {
+            closePopup('okaypopup');
+
+            const popupToOpen = data.ResponseCode === "0" ? 'stkokpopup' : 'stkerrorpopup';
+            openPopup(popupToOpen);
+            setTimeout(() => closePopup(popupToOpen), 3000);
+        }, 1000);
+
+        // Poll every second for payment status if STK push was successful
+        if (data.ResponseCode === "0" && checkoutID) {
+            const pollInterval = setInterval(async () => {
+                try {
+                    const statusRes = await fetch("check_status.php", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                        body: `CheckoutRequestID=${checkoutID}`
+                    });
+
+                    const stat = await statusRes.json();
+
+                    if (stat.ResultCode === 0) {
+                        clearInterval(pollInterval);
+                        document.getElementById("payments").textContent = `✅ Payment of KES ${selectedAmount} received from ${phone}`;
+                        openPopup("popup5");
+                        setTimeout(() => closePopup("popup5"), 4000);
+
+                        // Save payment to database
+                        await fetch("save_payment.php", {
+                            method: "POST",
+                            headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                            body: `phone=${encodeURIComponent(phone)}&amount=${selectedAmount}`
+                        });
+                    } else if (stat.ResultCode === 1032) {
+                        clearInterval(pollInterval);
+                        document.getElementById("failMessage").textContent = "❌ Payment Cancelled by User";
+                        openPopup("popup5");
+                        setTimeout(() => closePopup("popup5"), 4000);
+                    }
+                } catch (err) {
+                    clearInterval(pollInterval);
+                    document.getElementById("failMessage").textContent = "❌ Failed to verify payment";
+                    openPopup("popup5");
+                    setTimeout(() => closePopup("popup5"), 4000);
+                }
+            }, 1000);
+        }
+    } catch (error) {
+        console.error("STK Push failed❌:", error);
+        openPopup('popup4');
+        document.getElementById("stkStatusMessage").textContent = "❌ Network Error. Please Try Again!";
+        setTimeout(() => closePopup('popup4'), 4000);
+    }
+}
+
+
+
+
+//Validate Code function//
+function validateCode() {
+    const code = document.getElementById("code").value.trim();
+}
+
+
+                
+    
+  
+  
+        </script>
+
+</body>
+</html>
